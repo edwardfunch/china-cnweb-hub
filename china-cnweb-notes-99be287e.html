@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杂志专题 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f4ef;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            color: #2a2a2a;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem 2rem;
+        }
+
+        /* 首页横幅 — 杂志题图 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding: 3.2rem 2rem;
+            background: linear-gradient(145deg, #ede6db 0%, #f3ede4 100%);
+            border-left: 6px solid #b8a78c;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "✦ 专题";
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #9b8b73;
+            background: #f7f4ef;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3b3226;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7a6f5e;
+            margin-top: 0.6rem;
+            border-top: 1px solid #d6cdbf;
+            padding-top: 0.8rem;
+            display: inline-block;
+        }
+
+        /* 背景说明卡 */
+        .context-card {
+            background: #ffffffec;
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 2.2rem;
+            border-radius: 2px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6ddd1;
+            position: relative;
+        }
+
+        .context-card h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #4d4235;
+            border-bottom: 1px dashed #d6cdbf;
+            padding-bottom: 0.4rem;
+        }
+
+        .context-card blockquote {
+            margin: 1rem 0 0.8rem;
+            padding: 1.2rem 1.6rem;
+            background: #f7f2ea;
+            border-left: 4px solid #b8a78c;
+            font-style: italic;
+            color: #4f453a;
+        }
+
+        .context-card blockquote p {
+            margin-bottom: 0.4rem;
+        }
+
+        .context-card blockquote cite {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #887d6b;
+            margin-top: 0.4rem;
+        }
+
+        /* 三段自然介绍 — 杂志文章排版 */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .feature-item {
+            background: #faf8f5;
+            padding: 1.8rem 2rem;
+            border-radius: 1px;
+            border-bottom: 1px solid #e1d7c9;
+            transition: background 0.2s ease;
+        }
+
+        .feature-item:hover {
+            background: #f5efe7;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #3f372d;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item h3::before {
+            content: "▍";
+            color: #b8a78c;
+            font-weight: 300;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #3f3a33;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item .meta-note {
+            font-size: 0.9rem;
+            color: #887d6b;
+            border-left: 2px solid #cdc0ae;
+            padding-left: 1rem;
+            margin-top: 0.6rem;
+        }
+
+        /* 提示框 — 仿杂志信息块 */
+        .tip-box {
+            background: #f3ede4;
+            border: 1px solid #d6cdbf;
+            padding: 1.4rem 2rem;
+            margin: 2rem 0 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.6rem;
+        }
+
+        .tip-box .label {
+            font-weight: 500;
+            color: #5a4f40;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: #e1d7c9;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .tip-box .content {
+            font-size: 1rem;
+            color: #3b3226;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding: 1.8rem 0 0.6rem;
+            border-top: 2px solid #e1d7c9;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .footer-note p {
+            font-size: 0.95rem;
+            color: #5f5546;
+        }
+
+        .footer-note a {
+            color: #4d4235;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8a78c;
+            font-weight: 400;
+            transition: border 0.15s;
+        }
+
+        .footer-note a:hover {
+            border-bottom: 2px solid #7a6f5e;
+        }
+
+        .footer-note .small-print {
+            font-size: 0.8rem;
+            color: #9b8b73;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .wrapper {
+                padding: 1.2rem 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero::before {
+                top: 8px;
+                right: 12px;
+                font-size: 0.7rem;
+                padding: 0.1rem 0.8rem;
+            }
+
+            .context-card,
+            .feature-item {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .tip-box {
+                padding: 1rem 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                padding: 4rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 首页横幅 -->
+        <div class="hero">
+            <h1>稳定入口</h1>
+            <div class="sub">页面说明 · 杂志专题</div>
+        </div>
+
+        <!-- 背景说明 -->
+        <div class="context-card">
+            <h2>关于这一页</h2>
+            <p>每一次访问，都像推开一扇熟悉的门。我们相信，一个可靠的入口本身就是最好的介绍。这里没有多余的装饰，只有清晰的结构和克制的表达——让内容自己说话。</p>
+            <blockquote>
+                <p>“稳定的入口，不在于它有多醒目，而在于它始终在那里。”</p>
+                <cite>—— 摘自日常笔记</cite>
+            </blockquote>
+            <p style="margin-top: 0.6rem;">从杂志排版中汲取灵感，用米白的底色和温暖的衬线，搭建一个可以慢慢翻阅的页面。每一段文字都经过整理，不堆砌，不夸张。</p>
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>说清来处</h3>
+                <p>如果你正寻找一个指向 <a href="https://china-cnweb-hth.com" style="color:#4d4235; border-bottom:1px dotted #b8a78c; text-decoration:none;">hth</a> 的稳定链接，那么这里就是。没有跳转陷阱，没有层层嵌套，页面的唯一目的就是提供一条清晰、直接的路径。</p>
+                <div class="meta-note">就像杂志的卷首语，告诉你这一期要去哪里。</div>
+            </div>
+            <div class="feature-item">
+                <h3>页面即说明</h3>
+                <p>很多时候，一个页面不需要大段的操作指南。它只需要安静地存在，表明身份，然后让你决定下一步。这个页面就是那样——它介绍自己，也介绍背后的地址。</p>
+                <div class="meta-note">你看到的，就是你需要的。</div>
+            </div>
+            <div class="feature-item">
+                <h3>日常质感</h3>
+                <p>没有刺眼的色块，没有漂浮的弹窗。米白的背景、细长的边框、偶尔出现的引用块——这些细节凑在一起，形成一种翻阅纸刊的错觉。信息自然流淌，不打扰，也不缺席。</p>
+                <div class="meta-note">好的页面，像一本翻开的书。</div>
+            </div>
+        </div>
+
+        <!-- 引用块 / 提示框 -->
+        <div class="tip-box">
+            <span class="label">提示</span>
+            <span class="content">如果你想了解的正是 <a href="https://china-cnweb-hth.com" style="color:#4d4235; text-decoration: none; border-bottom: 1px dotted #b8a78c;">hth</a> 相关的内容，那么这个页面已经为你准备好了入口。其余的不必多说。</span>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p><span class="small-print">✦</span> 页面索引 · 稳定入口</p>
+            <p>
+                <a href="https://china-cnweb-hth.com">hth</a>
+                <span class="small-print" style="margin-left: 0.6rem;">/ 可直接访问</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
