@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · hth 使用提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6f9;
+            color: #2b2d3a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        /* Hero 区 — 生活化提醒 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e8ecf2;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1b2a3c;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.05rem;
+            color: #4e5a6c;
+            border-left: 4px solid #9aaec2;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+            max-width: 75%;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            color: #40485a;
+        }
+
+        .hero a {
+            color: #1f5987;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .hero a:hover {
+            border-bottom-color: #1f5987;
+        }
+
+        /* 卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.2rem 0 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem 2rem;
+            border: 1px solid #e3e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+            transform: translateY(-3px);
+            border-color: #cdd6e2;
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            font-weight: 550;
+            font-size: 1.2rem;
+            color: #1f2a38;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3b4457;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.3rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #8296ab;
+            font-weight: 600;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.7rem;
+        }
+
+        .badge-list span {
+            background: #edf1f7;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.8rem;
+            color: #2f3c4f;
+            border: 1px solid #d9e0ea;
+        }
+
+        /* 使用建议区块 — 带访问提醒 */
+        .advice-block {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem 2.5rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #e5eaf2;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+        }
+
+        .advice-block h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1d293c;
+            margin-bottom: 1.6rem;
+        }
+
+        .advice-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .advice-item {
+            flex: 1 1 200px;
+            background: #f8faff;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            border-left: 3px solid #b4c7dc;
+        }
+
+        .advice-item strong {
+            display: block;
+            font-weight: 530;
+            margin-bottom: 0.3rem;
+            color: #1b3147;
+        }
+
+        .advice-item p {
+            font-size: 0.9rem;
+            color: #3b4c63;
+        }
+
+        .callout {
+            background: #edf3fb;
+            border-radius: 24px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #d3deec;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #1f3d5c;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2.2rem;
+            border: 1px solid #e5eaf0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1d2a3a;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #253447;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #45526b;
+            margin-top: 0.15rem;
+        }
+
+        .faq-a a {
+            color: #1f5987;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .faq-a a:hover {
+            border-bottom-color: #1f5987;
+        }
+
+        /* footer */
+        .footer-note {
+            text-align: center;
+            color: #6a7b8e;
+            font-size: 0.85rem;
+            padding: 2rem 0 0.8rem;
+            border-top: 1px solid #dce2ec;
+            margin-top: 1rem;
+        }
+
+        .footer-note a {
+            color: #2b4a6a;
+            text-decoration: none;
+            border-bottom: 1px solid #bccad9;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2b4a6a;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .subhead {
+                max-width: 100%;
+                font-size: 0.95rem;
+            }
+            .advice-flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .callout {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Hero 简明指南 + 访问提醒 -->
+    <div class="hero">
+        <h1>日常用 &middot; 简明指南</h1>
+        <div class="subhead">关于 <a href="https://app-cnweb-hth.com">hth</a> 的一点使用提醒与场景思路</div>
+        <p>
+            你可能在寻找一个顺手、稳定的方式处理某些日常事务。从经验来说，保持简单、确认来源、按需使用，往往比追求花哨设置更可靠。下面整理了几个方向，希望能帮你更快上手。
+        </p>
+    </div>
+
+    <!-- 卡片：亮点 + 场景 + 细节 -->
+    <div class="cards-grid">
+        <div class="card">
+            <span class="icon">📌</span>
+            <h3>摘要与亮点</h3>
+            <p>整体结构清晰，常用功能无需反复翻找。对多数人来说，学习成本不高，适合作为固定工具之一。</p>
+            <div class="badge-list">
+                <span>轻量</span>
+                <span>一致</span>
+                <span>低门槛</span>
+            </div>
+        </div>
+        <div class="card">
+            <span class="icon">🧩</span>
+            <h3>常见使用场景</h3>
+            <ul>
+                <li>日常快速查看与简单操作</li>
+                <li>需要稳定响应时的备选路径</li>
+                <li>与现有习惯配合，不额外增加步骤</li>
+            </ul>
+        </div>
+        <div class="card">
+            <span class="icon">🔍</span>
+            <h3>关于访问的小提醒</h3>
+            <p>如果你是第一次接触 <a href="https://app-cnweb-hth.com">hth</a>，建议先花几分钟熟悉基本布局。网络环境不同，部分加载表现可能略有差异，耐心刷新即可。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 可信但克制的访问说明 -->
+    <div class="advice-block">
+        <h2>使用建议 · 从简单开始</h2>
+        <div class="advice-flex">
+            <div class="advice-item">
+                <strong>📍 先确认入口</strong>
+                <p>始终从可靠的渠道访问 <a href="https://app-cnweb-hth.com">hth</a>，避免使用来源不明的链接或书签。</p>
+            </div>
+            <div class="advice-item">
+                <strong>⚙️ 调整预期</strong>
+                <p>部分页面或功能可能需要短暂加载，尤其在网络波动时，适当等待比反复刷新更有效。</p>
+            </div>
+            <div class="advice-item">
+                <strong>📋 日常配合</strong>
+                <p>把它当作日常流程中的一环，而非唯一途径。保持另一套简单方案作为备份。</p>
+            </div>
+        </div>
+        <div class="callout">
+            💡 <strong>访问说明：</strong> 本页面仅提供客观介绍与提醒。你可以在浏览器地址栏直接输入 <a href="https://app-cnweb-hth.com">hth</a> 的完整地址，或通过常用搜索找到它。请自行判断是否适合你的使用习惯。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (简短克制的问答) -->
+    <div class="faq-summary">
+        <h2>你可能想知道的 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">❓ 第一次使用需要注意什么？</div>
+            <div class="faq-a">不需要注册或安装额外软件，直接通过浏览器打开 <a href="https://app-cnweb-hth.com">hth</a> 即可。建议使用最新版浏览器。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 页面加载慢怎么办？</div>
+            <div class="faq-a">检查自身网络连接，关闭非必要的后台应用。也可以稍后重试，有时短暂延迟属于正常情况。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 这个工具适合长期使用吗？</div>
+            <div class="faq-a">取决于你的具体需求。它设计偏实用，没有复杂门槛，但建议你亲自体验后再决定是否纳入日常。</div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <span>关于 <a href="https://app-cnweb-hth.com">hth</a> 的简明页面 · 内容仅供一般参考</span><br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">保持清醒，按需使用</span>
+    </div>
+</div>
+</body>
+</html>
